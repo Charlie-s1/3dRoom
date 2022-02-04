@@ -1,2 +1,3 @@
-# 3d website using three.js
-Link: `https://charlie-s1.github.io`
+### 3d website using three.js ([Link to site](https://charlie-s1.github.io))
+### 
+
