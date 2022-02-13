@@ -313,21 +313,27 @@ function onclick(e){
 
 function changeCamTarget(toFocus){
     const speed = 2.5;
-    if (controls.target.x < toFocus.x){
-        controls.target.x+=1;
-    }else if(controls.target.x>toFocus.x){
-        controls.target.x-=1;
-    } 
-    if (controls.target.y < toFocus.y){
-        controls.target.y+=1;
-    }else if(controls.target.y>toFocus.y){
-        controls.target.y-=1;
-    } 
-    if (controls.target.z < toFocus.z-1){
-        controls.target.z+=.5;
-    }else if(controls.target.z>toFocus.z+1){
-        controls.target.z-=.5;
-    } 
+    if(Math.round(controls.target.x) !== Math.round(toFocus.x)){
+        if (controls.target.x < toFocus.x){
+            controls.target.x+=1;
+        }else if(controls.target.x>toFocus.x){
+            controls.target.x-=1;
+        } 
+    }
+    if(Math.round(controls.target.y) !== Math.round(toFocus.y)){
+        if (controls.target.y < toFocus.y){
+            controls.target.y+=1;
+        }else if(controls.target.y>toFocus.y){
+            controls.target.y-=1;
+        } 
+    }
+    if(Math.round(controls.target.z) !== Math.round(toFocus.z)){
+        if (controls.target.z < toFocus.z){
+            controls.target.z+=.5;
+        }else if(controls.target.z>toFocus.z){
+            controls.target.z-=.5;
+        } 
+    }
     
     if (toFocus.x!=0 || toFocus.y!=0 || toFocus.z!=0){
         if (Math.round(camera.position.x) < toFocus.x-1){
@@ -350,12 +356,23 @@ function changeCamTarget(toFocus){
             MIDDLE:null,
             RIGHT:null
         }
+        controls.enableZoom = false;
+        controls.touches = {
+            ONE: null,
+            TWO: null
+        }
         
-    }else{
+    }
+    else{
         controls.mouseButtons = {
             LEFT:null,
             MIDDLE:three.MOUSE.ROTATE,
             RIGHT:three.MOUSE.ROTATE
+        }
+        controls.enableZoom = true;
+        controls.touches = {
+            ONE: three.TOUCH.ROTATE,
+            TWO: three.TOUCH.DOLLY_PAN
         }
         if (Math.round(camera.position.y) > -90 && Math.round(camera.position.x) > -90){
             camera.position.y -= speed;
@@ -364,4 +381,3 @@ function changeCamTarget(toFocus){
         
     }
 }
-console.log(scene);
