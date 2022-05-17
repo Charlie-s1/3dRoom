@@ -229,6 +229,7 @@ window.addEventListener("load",() => {
         objTarget = {x:0,y:0,z:0};
         desktopCtrl = false;
     });
+    document.querySelector("#loading").style.display="none";
     animate();
     
 
