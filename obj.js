@@ -214,6 +214,8 @@ function monitor(three,x,y,z){
 // ./jsMod/three/examples/fonts/optimer_bold.typeface.json
 // ./jsMod/three/examples/fonts/optimer_regular.typeface.json
 function text(three,scene,text,x,y,z,size){
+    const txt = new three.Group();
+    txt.name = "text";
     const textLoad = new three.FontLoader().load('./jsMod/three/examples/fonts/helvetiker_regular.typeface.json',function(font){
         const txtMesh = new three.Mesh(    
             new three.TextGeometry(text,{
@@ -235,8 +237,10 @@ function text(three,scene,text,x,y,z,size){
         txtMesh.position.set(x,y,z);
         txtMesh.rotation.x = Math.PI/2;
         txtMesh.castShadow = true;
-        scene.add(txtMesh);
+        txt.add(txtMesh)
+        
     });
+    return txt;
 }
 
 export{desk,chair,lightSwitch,monitor,text};

@@ -152,10 +152,17 @@ scene.add(lSwitch);
 
 
 let textList = [];
-myObjs.text(three,scene,"Charlie",-45,50,37,7);
-myObjs.text(three,scene,"Smith",-45,50,28,7);
-myObjs.text(three,scene,"github.com/charlie-s1",-45,50,21,4);
+// myObjs.text(three,scene,"Charlie",-45,50,37,7);
+// myObjs.text(three,scene,"Smith",-45,50,28,7);
+// myObjs.text(three,scene,"github.com/charlie-s1",-45,50,21,4);
+const fName = myObjs.text(three,scene,"Charlie",-45,50,37,7);
+scene.add(fName);
+const lName = myObjs.text(three,scene,"Smith",-45,50,28,7);
+scene.add(lName);
+const link = myObjs.text(three,scene,"github.com/charlie-s1",-45,50,21,4);
+scene.add(link);
 
+console.log(clickable);
 
 
 const animate = function () {
@@ -222,7 +229,6 @@ window.addEventListener("load",() => {
         objTarget = {x:0,y:0,z:0};
         desktopCtrl = false;
     });
-
     animate();
     
 
