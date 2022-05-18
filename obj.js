@@ -213,7 +213,7 @@ function monitor(three,x,y,z){
 // ./jsMod/three/examples/fonts/helvetiker_regular.typeface.json
 // ./jsMod/three/examples/fonts/optimer_bold.typeface.json
 // ./jsMod/three/examples/fonts/optimer_regular.typeface.json
-function text(three,scene,text,x,y,z,size){
+function text(three,scene,text,x,y,z,size,link){
     const txt = new three.Group();
     txt.name = "text";
     const textLoad = new three.FontLoader().load('./jsMod/three/examples/fonts/helvetiker_regular.typeface.json',function(font){
@@ -240,6 +240,18 @@ function text(three,scene,text,x,y,z,size){
         txt.add(txtMesh)
         
     });
+    if(link){
+        const textCont = new three.Mesh(
+            new three.BoxGeometry(size*text.length*.66,.6,5),
+            new three.MeshLambertMaterial({color:0x373737})
+        );
+        textCont.visible = false;
+        textCont.position.x = x+text.length*1.3;
+        textCont.position.y = y;
+        textCont.position.z = z+1;
+
+        txt.add(textCont);
+    }
     return txt;
 }
 

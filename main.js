@@ -159,11 +159,12 @@ const fName = myObjs.text(three,scene,"Charlie",-45,50,37,7);
 scene.add(fName);
 const lName = myObjs.text(three,scene,"Smith",-45,50,28,7);
 scene.add(lName);
-const link = myObjs.text(three,scene,"github.com/charlie-s1",-45,50,21,4);
+const link = myObjs.text(three,scene,"github.com/charlie-s1",-45,50,21,4,true);
+link.link = "github.com/charlie-s1"
 scene.add(link);
-
-console.log(clickable);
-
+for(let i of link.children){
+    clickable.push(i);
+}
 
 const animate = function () {
     // for (let i of textList){
@@ -305,16 +306,14 @@ function onclick(e){
                 }
             }
         }
-        /**
-         * add toggle
-         * 
-         */
         if(intersects[0].object.parent.name == "monitor"){
             let monitorPos = intersects[0].object.parent.position;
             desktopCtrl = true;
             objTarget = monitorPos;
         }
-
+        if(intersects[0].object.parent.link){
+            window.location.href = `https://${intersects[0].object.parent.link}`;
+        }
     }
 }
 
