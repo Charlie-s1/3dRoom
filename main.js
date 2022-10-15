@@ -7,6 +7,10 @@ import * as screenScript from "./screen.js";
 
 document.addEventListener("click",onclick);
 document.addEventListener("mousemove",onHover);
+document.querySelector("#closeHelp").addEventListener("click",(e)=>{
+    document.querySelector("#helpScreen").style.display="none";
+})
+
 let clickable = [];
 const raycaster = new three.Raycaster();
 const mouse = new three.Vector2();

@@ -9,9 +9,28 @@
 </head>
 <body>
     <!-- <script src="screen.js"></script> -->
-    <h1 id="loading">loading...</h1>
-    <script type="module" src="main.js"></script>
+    <div id="helpScreen">
+        <div id="helpScreenCont">
+            <div class="helpStep">
+                <img src="img/leftHighlight.svg"></img>
+                <p>Left click or tap to interact with the scene.</p>
+            </div>
+            <div class="helpStep">
+                <img src="img/rightHighlight.svg"></img>
+                <p>Right click and drag or tap and drag to rotate the scene</p>
+            </div>
+            <div class="helpStep">
+                <img src="img/middleHighlight.svg"></img>
+                <p>Scroll or pinch to zoom in and out</p>
+            </div>
+            
+        </div>
+        <p id="closeHelp">X</p>
+        <h1 id="loading">loading...</h1>
 
+    </div>
+    <script type="module" src="main.js"></script>
+    
     <div id = "resetButton" class="hide">
         <p>Back</p>
         <!-- <img src="img/arrow.png" alt="arrow"> -->
