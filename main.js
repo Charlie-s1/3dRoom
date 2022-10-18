@@ -235,6 +235,7 @@ window.addEventListener("load",() => {
         desktopCtrl = false;
     });
     document.querySelector("#loading").style.display="none";
+    document.querySelector("#helpScreen").style.display="flex"
     animate();
     
 

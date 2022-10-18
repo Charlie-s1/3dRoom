@@ -10,16 +10,18 @@ body,html{
 }
 #loading{
     position: absolute;
-    bottom:20%;
+    bottom:50%;
     left:50%;
+    font-size: 3rem;
+    font-family: sans-serif;
     text-align: center;
     transform: translate(-50%,-50%);
-    color: #636363bd;
+    color: white;
 }
 #helpScreen{
+    display:none;
     position: absolute;
     user-select: none;
-    display:flex;
     align-items: center;
     color:black;
     justify-content: center;
@@ -109,7 +111,6 @@ body,html{
     .helpStep{
         width:50%;
         height:30%;
-        overflow: scroll;
         justify-content: center;
     }
     .helpStep img{
